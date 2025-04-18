@@ -7,9 +7,21 @@ import { cn } from "@/lib/utils";
 import { Calendar, CalendarPlus, Clock, Filter, MapPin, MoreVertical, Plus, RefreshCw, Search, User, Video } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+// Define type for appointment
+interface Appointment {
+  id: string;
+  doctorName: string;
+  specialty: string;
+  date: string;
+  time: string;
+  location: string;
+  type: "in-person" | "virtual";
+  status: "upcoming" | "completed";
+}
+
 export default function Appointments() {
   // Sample data - in a real app, this would come from an API
-  const appointments = [
+  const appointments: Appointment[] = [
     {
       id: "1",
       doctorName: "Dr. Sarah Johnson",
@@ -17,8 +29,8 @@ export default function Appointments() {
       date: "April 22, 2025",
       time: "10:30 AM",
       location: "Heart Care Center, Building B",
-      type: "in-person" as const,
-      status: "upcoming" as const
+      type: "in-person",
+      status: "upcoming"
     },
     {
       id: "2",
@@ -27,8 +39,8 @@ export default function Appointments() {
       date: "May 5, 2025",
       time: "2:15 PM",
       location: "Diabetes & Endocrinology Clinic",
-      type: "in-person" as const,
-      status: "upcoming" as const
+      type: "in-person",
+      status: "upcoming"
     },
     {
       id: "3",
@@ -37,8 +49,8 @@ export default function Appointments() {
       date: "April 10, 2025",
       time: "3:00 PM",
       location: "Video Consultation",
-      type: "virtual" as const,
-      status: "completed" as const
+      type: "virtual",
+      status: "completed"
     },
     {
       id: "4",
@@ -47,8 +59,8 @@ export default function Appointments() {
       date: "March 15, 2025",
       time: "11:45 AM",
       location: "Neurology Center, Floor 3",
-      type: "in-person" as const,
-      status: "completed" as const
+      type: "in-person",
+      status: "completed"
     }
   ];
 
